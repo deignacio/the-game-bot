@@ -8,7 +8,7 @@ Build the thing
    Building the_game_bot/the_game_bot using c backend
 ```
 
-Run with default parameters, verbose (outputs players and end board), 1 iteration, 1 player, using naive bot
+Run with default parameters, verbose (outputs players and end board), 1 iteration, 1 player, using naive strategy
 ```
 % ./bin/the_game_bot
 Welcome to The Game Bot
@@ -40,9 +40,9 @@ Turns with extra cards: 0.0
 	std-dev: 0.0
 ```
 
-Run quiet, 10000 iterations, 2 players, using bot 1 (trivial fork of naive bot), dumping tens, score, and turns with extra cards into a csv
+Run quiet, 10000 iterations, 2 players, using strategy 1 (trivial fork of naive), dumping tens, score, and turns with extra cards into a csv
 ```
-% ./bin/the_game_bot -q -i:10000 -n:2 -b:1 -c:./output/data.csv
+% ./bin/the_game_bot -q -i:10000 -n:2 -s:1 -c:./output/data.csv
 Welcome to The Game Bot
 Games run: 10000
 Wins: 192 (1.92%)
@@ -64,4 +64,4 @@ going to drop a csv at ./output/data.csv
 ## TODO
 
 * I wanted to try to create a scatter plot using `ggplotnim`, but I couldn't get libcairo to work on my mac. Instead, I am just dumping to `csv` and using Google Sheets to visualize.
-* I want to add a bunch of more bots with more nuanced strategy.
+* I want to add a bunch of more nuanced strategies

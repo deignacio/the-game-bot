@@ -1,5 +1,5 @@
 import parseopt, strutils, times
-import bot, game, game_stats
+import game, game_stats, strategy
 
 proc buildGame(): Game =
   var numPlayers = 1
@@ -14,14 +14,14 @@ proc buildGame(): Game =
 
 proc runGame(): GameStats =
   var g: Game = buildGame()
-  var botKind = 0  
+  var stratKind = 0  
   var quiet = false
   for _, key, val in getopt():
     if key == "q":
       quiet = true
-    if key == "b":
-      botKind = parseInt(val)
-  let gStats = g.playGame(botKind)
+    if key == "s":
+      stratKind = parseInt(val)
+  let gStats = g.playGame(stratKind)
   if not quiet:
     dump(g)
   return gStats
