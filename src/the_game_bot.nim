@@ -4,13 +4,13 @@ import game, game_stats, strategy
 proc buildGame(): Game =
   var numPlayers = 1
   let now = getTime()
-  var seed = now.toUnix * 1_000_000_000 + now.nanosecond
+  var randSeed = now.toUnix * 1_000_000_000 + now.nanosecond
   for _, key, val in getopt():
     if key == "n":
       numPlayers = parseInt(val)
-    if key == "s":
-      seed = parseInt(val)
-  return newGame(numPlayers, seed)
+    if key == "r":
+      randSeed = parseInt(val)
+  return newGame(numPlayers, randSeed)
 
 proc runGame(): GameStats =
   var g: Game = buildGame()
