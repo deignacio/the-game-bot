@@ -6,7 +6,9 @@ type
     cards*: seq[int]
   Game* = ref object
     board*: Board
-    players: seq[Player]
+    # Exposing this for enabling a strategy to calculate signals for other players
+    # Don't cheat and see what other people have to make better decisions
+    players*: seq[Player]
     turn*: int
     stats*: GameStats
 

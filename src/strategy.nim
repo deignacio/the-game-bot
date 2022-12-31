@@ -1,11 +1,12 @@
 import sequtils
 import board, game, game_stats
-import naive_strategy, more_than_min_turns_strategy
+import more_than_min_turns_strategy, naive_strategy, signalling_strategy
 
 type
   StrategyKind = enum
     NAIVE_STRATEGY_KIND,
-    MORE_THAN_MIN_TURNS_STRATEGY_KIND
+    MORE_THAN_MIN_TURNS_STRATEGY_KIND,
+    SIGNALLING_STRATEGY_KIND
 
 proc playGame*[Strategy](strat: Strategy, game: var Game): GameStats =
   while game.score < 102:
@@ -29,4 +30,7 @@ proc playGame*(game: var Game, stratKind: int): GameStats =
       return strat.playGame(game)
     of MORE_THAN_MIN_TURNS_STRATEGY_KIND:
       var strat: MoreThanMinTurnsStrategy = MoreThanMinTurnsStrategy()
+      return strat.playGame(game)
+    of SIGNALLING_STRATEGY_KIND:
+      var strat: SignallingStrategy = SignallingStrategy()
       return strat.playGame(game)
