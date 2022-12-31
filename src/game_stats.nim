@@ -26,7 +26,7 @@ proc dump*(stats: seq[GameStats]) =
   echo "Score mean: ", scoreStats.mean, "\n\tstd-dev: ", scoreStats.standardDeviation
   echo "\tUp-tens: ", int(upTenStats.sum), "\n\t\tmean: ", upTenStats.mean, "\tstd-dev: ", upTenStats.standardDeviation
   echo "\tDown-tens: ", int(downTenStats.sum), "\n\t\tmean: ", downTenStats.mean, "\tstd-dev: ", downTenStats.standardDeviation
-  echo "Turns with extra cards: ", extraCardStats.mean, "\n\tstd-dev: ", extraCardStats.standardDeviation
+  echo "Turns with extra cards: ", extraCardStats.sum
 
 proc csv*(stats: seq[GameStats], path: string) =
   if path.len == 0:
